@@ -25,9 +25,12 @@ const SlugPage = ({ data }) => {
   const headlineModuleData = content.body.find(
     item => item.component === "Headline Module"
   );
-
+  /*Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
+þannig þetta file getur verið allar síðurnar, þú gerir layout fyrir different components
+og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that! */
   return (
     <DefaultLayout>
+      <p>{codeString}</p>
       {headlineModuleData ? (
         <HeadlineModule title={headlineModuleData.title} />
       ) : null}
