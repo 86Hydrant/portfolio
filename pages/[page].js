@@ -6,6 +6,7 @@ import fetch from "isomorphic-unfetch";
 import DefaultLayout from "../components/layouts/DefaultLayout";
 
 import HeadlineModule from "../components/modules/HeadlineModule";
+import Feature from "../components/modules/Feature/feature";
 
 /* Helper function to fetch data - do we need this as an extra function? Debatable. 😊 */
 function fetchUrl(url) {
@@ -25,6 +26,7 @@ const SlugPage = ({ data }) => {
   const headlineModuleData = content.body.find(
     item => item.component === "Headline Module"
   );
+  const featureData = content.body.find(item => item.component === "feature");
   /*Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
 þannig þetta file getur verið allar síðurnar, þú gerir layout fyrir different components
 og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that! */
@@ -32,8 +34,9 @@ og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how coo
     <DefaultLayout>
       <p>{codeString}</p>
       {headlineModuleData ? (
-        <HeadlineModule title={headlineModuleData.title} />
+        <HeadlineModule headline={headlineModuleData.headline} />
       ) : null}
+      {featureData ? <Feature name={featureData.name} /> : null}
     </DefaultLayout>
   );
 };

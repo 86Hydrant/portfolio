@@ -5,22 +5,12 @@ import style from "../components/layouts/DefaultLayout/index.scss";
 const DefaultPage = () => {
   return (
     <DefaultLayout>
-      <div className={style.headlineWrapper}>
-        <h1>
-          H. Eva
-          <br /> Thorisdottir
-        </h1>
-        {/* <a href="/about"> ->Visit a Slug Page </a>*/}
-        <h2>Front end developer</h2>
-      </div>
-      <div className={style.contentWrapper}>
-        <a id={style.myWorkLink} href="/work">
-          My Work
-        </a>
-        <a id={style.contactLink} href="/about">
-          Contact Me
-        </a>
-      </div>
+      <a id={style.myWorkLink} href="/myWork">
+        My Work
+      </a>
+      <a id={style.contactLink} href="/about">
+        Contact Me
+      </a>
     </DefaultLayout>
   );
 };
