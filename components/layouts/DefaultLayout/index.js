@@ -16,7 +16,6 @@ const DefaultLayout = props => {
             H. Eva
             <br /> Thorisdottir
           </h1>
-          {/* <a href="/about"> ->Visit a Slug Page </a>*/}
           <h2>Front end developer</h2>
         </div>
         <div className={style.contentWrapper}>{props.children}</div>

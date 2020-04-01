@@ -3,10 +3,13 @@
 /* dependencies */
 import fetch from "isomorphic-unfetch";
 
+/* Layouts */
 import DefaultLayout from "../components/layouts/DefaultLayout";
+import MyWorkLayout from "../components/layouts/myWorkLayout/MyWorkLayout";
 
+/* Modules */
 import HeadlineModule from "../components/modules/HeadlineModule";
-import Feature from "../components/modules/Feature/feature";
+import MyWork from "../components/modules/myWorkModule/MyWork";
 
 /* Helper function to fetch data - do we need this as an extra function? Debatable. 😊 */
 function fetchUrl(url) {
@@ -21,22 +24,36 @@ const SlugPage = ({ data }) => {
 
   const codeString = JSON.stringify(content);
 
-  console.log(codeString);
-  /* Now you need to map your own components, I just left the headline module as reference */
+  /* Data for all components on slug pages */
+
   const headlineModuleData = content.body.find(
     item => item.component === "Headline Module"
   );
-  const featureData = content.body.find(item => item.component === "feature");
+  const myWorkModuledata = content.body.find(
+    item => item.component === "project"
+  );
+
   /*Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
 þannig þetta file getur verið allar síðurnar, þú gerir layout fyrir different components
 og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that! */
+
   return (
     <DefaultLayout>
-      <p>{codeString}</p>
+      {/*  <p>{codeString}</p>*/}
       {headlineModuleData ? (
         <HeadlineModule headline={headlineModuleData.headline} />
       ) : null}
-      {featureData ? <Feature name={featureData.name} /> : null}
+      {myWorkModuledata ? (
+        <MyWorkLayout>
+          {/*  Note for Eva: map function fyrir hvert WorkModule added to
+          storyblok*/}
+          <MyWork
+            image={myWorkModuledata.image}
+            title={myWorkModuledata.title}
+            infoList={myWorkModuledata.infoList}
+          />
+        </MyWorkLayout>
+      ) : null}
     </DefaultLayout>
   );
 };
