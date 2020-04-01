@@ -1,0 +1,24 @@
+.myWorkWrapper {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    margin: 3vh 3vw;
+    padding: 3vh 3vw;
+    background-color: #3a5065;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+  }
+
+  img {
+    width: 40%;
+  }
+}

@@ -3,10 +3,13 @@
 /* dependencies */
 import fetch from "isomorphic-unfetch";
 
+/* Layouts */
 import DefaultLayout from "../components/layouts/DefaultLayout";
+import MyWorkLayout from "../components/layouts/myWorkLayout/MyWorkLayout";
 
+/* Modules */
 import HeadlineModule from "../components/modules/HeadlineModule";
-import Feature from "../components/modules/Feature/feature";
+import MyWork from "../components/modules/myWorkModule/MyWork";
 
 /* Helper function to fetch data - do we need this as an extra function? Debatable. 😊 */
 function fetchUrl(url) {
@@ -21,22 +24,42 @@ const SlugPage = ({ data }) => {
 
   const codeString = JSON.stringify(content);
 
-  console.log(codeString);
-  /* Now you need to map your own components, I just left the headline module as reference */
+  /* Data for all components on slug pages */
+
   const headlineModuleData = content.body.find(
     item => item.component === "Headline Module"
   );
-  const featureData = content.body.find(item => item.component === "feature");
-  /*Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
+  /*Finding all object that include the component name "project"
+    and pushing its data into an array that I can map into a component to render
+  */
+  let workdata = [];
+  const myWorkModuledata = content.body.map(function(item) {
+    if (item => item.component === "project") {
+      return workdata.push(content.body);
+    }
+  });
+  /*
+Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
 þannig þetta file getur verið allar síðurnar, þú gerir layout fyrir different components
-og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that! */
+og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that!
+ */
+
   return (
     <DefaultLayout>
-      <p>{codeString}</p>
       {headlineModuleData ? (
         <HeadlineModule headline={headlineModuleData.headline} />
       ) : null}
-      {featureData ? <Feature name={featureData.name} /> : null}
+      {myWorkModuledata ? (
+        <MyWorkLayout data={myWorkModuledata}>
+          {workdata[0].map(project => (
+            <MyWork
+              title={project.title}
+              image={project.image}
+              infoList={project.infoList}
+            />
+          ))}
+        </MyWorkLayout>
+      ) : null}
     </DefaultLayout>
   );
 };
