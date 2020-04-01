@@ -29,29 +29,35 @@ const SlugPage = ({ data }) => {
   const headlineModuleData = content.body.find(
     item => item.component === "Headline Module"
   );
-  const myWorkModuledata = content.body.find(
-    item => item.component === "project"
-  );
-
-  /*Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
+  /*Finding all object that include the component name "project"
+    and pushing its data into an array that I can map into a component to render
+  */
+  let workdata = [];
+  const myWorkModuledata = content.body.map(function(item) {
+    if (item => item.component === "project") {
+      return workdata.push(content.body);
+    }
+  });
+  /*
+Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
 þannig þetta file getur verið allar síðurnar, þú gerir layout fyrir different components
-og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that! */
+og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that!
+ */
 
   return (
     <DefaultLayout>
-      {/*  <p>{codeString}</p>*/}
       {headlineModuleData ? (
         <HeadlineModule headline={headlineModuleData.headline} />
       ) : null}
       {myWorkModuledata ? (
-        <MyWorkLayout>
-          {/*  Note for Eva: map function fyrir hvert WorkModule added to
-          storyblok*/}
-          <MyWork
-            image={myWorkModuledata.image}
-            title={myWorkModuledata.title}
-            infoList={myWorkModuledata.infoList}
-          />
+        <MyWorkLayout data={myWorkModuledata}>
+          {workdata[0].map(project => (
+            <MyWork
+              title={project.title}
+              image={project.image}
+              infoList={project.infoList}
+            />
+          ))}
         </MyWorkLayout>
       ) : null}
     </DefaultLayout>
