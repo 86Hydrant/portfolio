@@ -41,22 +41,24 @@ const SlugPage = ({ data }) => {
     item => item.component === "image module"
   );
 
-  const projectData = content.body.project.projectComponents(
-    item => item.component === "projectComponents"
+  const projectData = content.body.filter(item =>
+    item.component.includes("ProjectContainer")
   );
-  console.log(content.body.project);
+  console.log(projectData);
+
+  const modulePrinter = projectData => {
+    return projectData.map((module, index) => {
+      return (
+        <MyWork title={module.title} image={module.image} info={module.info} />
+      );
+    });
+  };
+
   return (
     <DefaultLayout>
       {codeString}
-      {projectData ? (
-        <MyWorkLayout>
-          <MyWork
-            title={projectData.title}
-            image={projectData.image}
-            info={projectData.info}
-          />
-        </MyWorkLayout>
-      ) : null}
+
+      <MyWorkLayout>{modulePrinter(projectData)}</MyWorkLayout>
 
       <AboutLayout>
         {imageModuledata ? (
