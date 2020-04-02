@@ -6,14 +6,3 @@ const MyWorkLayout = (props, { data }) => {
 };
 
 export default MyWorkLayout;
-{
-  /*{data.map(project => {
-  return (
-    <MyWork
-      image={project.image}
-      title={project.title}
-      infoList={project.infoList}
-    />
-  );
-})}*/
-}

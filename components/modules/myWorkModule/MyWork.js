@@ -5,9 +5,11 @@ const MyWork = ({ title, image, infoList }) => {
       <div className="infoContainer">
         <h3>{title}</h3>
         <ul>
-          {infoList.map(item => {
-            return <li>{item.text}</li>;
-          })}
+          {infoList
+            ? infoList.map(item => {
+                return <li>{item.text}</li>;
+              })
+            : null}
         </ul>
       </div>
     </div>

@@ -9,6 +9,7 @@ import MyWorkLayout from "../components/layouts/myWorkLayout/MyWorkLayout";
 
 /* Modules */
 import HeadlineModule from "../components/modules/HeadlineModule";
+import ParagraphModule from "../components/modules/ParagraphModule";
 import MyWork from "../components/modules/myWorkModule/MyWork";
 
 /* Helper function to fetch data - do we need this as an extra function? Debatable. 😊 */
@@ -27,39 +28,43 @@ const SlugPage = ({ data }) => {
   /* Data for all components on slug pages */
 
   const headlineModuleData = content.body.find(
-    item => item.component === "Headline Module"
+    item => item.component === "headline module"
+  );
+
+  const paragraphModuleData = content.body.find(
+    item => item.component === "paragraph"
   );
   /*Finding all object that include the component name "project"
     and pushing its data into an array that I can map into a component to render
   */
   let workdata = [];
+
   const myWorkModuledata = content.body.map(function(item) {
     if (item => item.component === "project") {
-      return workdata.push(content.body);
+      for (let index = 0; content.body.length; index++) {
+        return workdata.push(content.body);
+      }
     }
   });
-  /*
-Note for Eva: þú ert að velja hvað þú sýnir eftir því hvaða data er til staðar!
-þannig þetta file getur verið allar síðurnar, þú gerir layout fyrir different components
-og síðan sýnir modules eftir því hvort datanu er skilað eða ekki! how cool is that!
- */
+  let workModuleList = workdata.map(project => (
+    <MyWork
+      title={project.title}
+      image={project.image}
+      infoList={project.infoList}
+    />
+  ));
 
   return (
     <DefaultLayout>
       {headlineModuleData ? (
-        <HeadlineModule headline={headlineModuleData.headline} />
+        <HeadlineModule title={headlineModuleData.title} />
       ) : null}
-      {myWorkModuledata ? (
-        <MyWorkLayout data={myWorkModuledata}>
-          {workdata[0].map(project => (
-            <MyWork
-              title={project.title}
-              image={project.image}
-              infoList={project.infoList}
-            />
-          ))}
-        </MyWorkLayout>
-      ) : null}
+      {myWorkModuledata ? <MyWorkLayout>{workModuleList}</MyWorkLayout> : null}
+      {paragraphModuleData ? (
+        <ParagraphModule paragraph={paragraphModuleData.paragraph} />
+      ) : (
+        <p>hæ</p>
+      )}
     </DefaultLayout>
   );
 };
