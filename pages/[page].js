@@ -6,11 +6,13 @@ import fetch from "isomorphic-unfetch";
 /* Layouts */
 import DefaultLayout from "../components/layouts/DefaultLayout";
 import MyWorkLayout from "../components/layouts/myWorkLayout/MyWorkLayout";
+import AboutLayout from "../components/layouts/aboutLayout/AboutLayout";
 
 /* Modules */
 import HeadlineModule from "../components/modules/HeadlineModule";
 import ParagraphModule from "../components/modules/ParagraphModule";
 import MyWork from "../components/modules/myWorkModule/MyWork";
+import ImageModule from "../components/modules/ImageModule";
 
 /* Helper function to fetch data - do we need this as an extra function? Debatable. 😊 */
 function fetchUrl(url) {
@@ -34,37 +36,39 @@ const SlugPage = ({ data }) => {
   const paragraphModuleData = content.body.find(
     item => item.component === "paragraph"
   );
-  /*Finding all object that include the component name "project"
-    and pushing its data into an array that I can map into a component to render
-  */
-  let workdata = [];
 
-  const myWorkModuledata = content.body.map(function(item) {
-    if (item => item.component === "project") {
-      for (let index = 0; content.body.length; index++) {
-        return workdata.push(content.body);
-      }
-    }
-  });
-  let workModuleList = workdata.map(project => (
-    <MyWork
-      title={project.title}
-      image={project.image}
-      infoList={project.infoList}
-    />
-  ));
+  const imageModuledata = content.body.find(
+    item => item.component === "image module"
+  );
 
+  const projectData = content.body.project.projectComponents(
+    item => item.component === "projectComponents"
+  );
+  console.log(content.body.project);
   return (
     <DefaultLayout>
-      {headlineModuleData ? (
-        <HeadlineModule title={headlineModuleData.title} />
+      {codeString}
+      {projectData ? (
+        <MyWorkLayout>
+          <MyWork
+            title={projectData.title}
+            image={projectData.image}
+            info={projectData.info}
+          />
+        </MyWorkLayout>
       ) : null}
-      {myWorkModuledata ? <MyWorkLayout>{workModuleList}</MyWorkLayout> : null}
-      {paragraphModuleData ? (
-        <ParagraphModule paragraph={paragraphModuleData.paragraph} />
-      ) : (
-        <p>hæ</p>
-      )}
+
+      <AboutLayout>
+        {imageModuledata ? (
+          <ImageModule image={imageModuledata.headshot} />
+        ) : null}
+        {headlineModuleData ? (
+          <HeadlineModule title={headlineModuleData.title} />
+        ) : null}
+        {paragraphModuleData ? (
+          <ParagraphModule paragraph={paragraphModuleData.paragraph} />
+        ) : null}
+      </AboutLayout>
     </DefaultLayout>
   );
 };

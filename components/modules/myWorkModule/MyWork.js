@@ -1,16 +1,10 @@
-const MyWork = ({ title, image, infoList }) => {
+const MyWork = ({ title, image, info }) => {
   return (
     <div className="projectContainer">
       <img src={image} alt="Screenshot of Project" />
       <div className="infoContainer">
         <h3>{title}</h3>
-        <ul>
-          {infoList
-            ? infoList.map(item => {
-                return <li>{item.text}</li>;
-              })
-            : null}
-        </ul>
+        <p>{info}</p>
       </div>
     </div>
   );
