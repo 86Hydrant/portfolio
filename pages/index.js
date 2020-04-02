@@ -9,7 +9,7 @@ const DefaultPage = () => {
         My Work
       </a>
       <a id={style.contactLink} href="/about">
-        Contact Me
+        About Me
       </a>
     </DefaultLayout>
   );
