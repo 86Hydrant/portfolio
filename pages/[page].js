@@ -41,23 +41,23 @@ const SlugPage = ({ data }) => {
     item => item.component === "image module"
   );
 
+  /* selecting all ProjectContainers with filter so they can be mapped */
   const projectData = content.body.filter(item =>
     item.component.includes("ProjectContainer")
   );
-  console.log(projectData);
 
-  const modulePrinter = projectData => {
-    return projectData.map((module, index) => {
+  /* function to map components */
+  const modulePrinter = moduleData => {
+    return moduleData.map((module, index) => {
       return (
         <MyWork title={module.title} image={module.image} info={module.info} />
       );
     });
   };
 
+  /* For easier styling I made layout components for both pages */
   return (
     <DefaultLayout>
-      {codeString}
-
       <MyWorkLayout>{modulePrinter(projectData)}</MyWorkLayout>
 
       <AboutLayout>
