@@ -1,39 +1,23 @@
 .myWorkWrapper {
+  width: 80% !important;
   display: flex;
-  flex-direction: column;
-  color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: black;
+  justify-content: space-around;
+}
 
-  div {
-    margin: 3vh 3vw;
-    padding: 3vh 3vw;
-    background-color: #3a5065;
-    display: flex;
-    flex-direction: row;
+@media only screen and (max-width: 992px) {
+  .projectContainers {
+    width: 10vw;
+    height: auto;
+    margin-top: 5vh;
+    a {
+      margin: 6vh 0;
 
-    div {
-      margin: 0;
-      padding: 0 2vw;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-
-      h3 {
-        font-size: 30px;
-        padding-bottom: 2vh;
-      }
-
-      p {
-        font-weight: 400;
+      .hoverEffectContainer {
+        margin: 10vh;
       }
     }
-  }
-
-  .infoContainer {
-    display: flex;
-    flex-direction: column;
-  }
-  img {
-    max-width: 15vw;
-    max-height: 20vh;
   }
 }

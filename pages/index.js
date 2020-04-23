@@ -5,12 +5,14 @@ import style from "../components/layouts/DefaultLayout/index.scss";
 const DefaultPage = () => {
   return (
     <DefaultLayout>
-      <a id={style.myWorkLink} href="/myWork">
-        My Work
-      </a>
-      <a id={style.contactLink} href="/about">
-        About Me
-      </a>
+      <div className={style.buttonContainer}>
+        <a id={style.myWorkLink} href="/myWork">
+          My Work
+        </a>
+        <a id={style.contactLink} href="/about">
+          About Me
+        </a>
+      </div>
     </DefaultLayout>
   );
 };

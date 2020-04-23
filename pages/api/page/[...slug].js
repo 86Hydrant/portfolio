@@ -10,8 +10,8 @@ const Storyblok = new StoryblokClient({
   accessToken: "3rj2igsn6TzmfrhDMVaaBwtt",
   cache: {
     clear: "auto",
-    type: "memory"
-  }
+    type: "memory",
+  },
 });
 
 export default async (req, res) => {
@@ -28,17 +28,17 @@ export default async (req, res) => {
 	*/
 
   const {
-    query: { slug }
+    query: { slug },
   } = req;
 
   /* We are making a request to Storybloks API, using
     the Storyblok Client that we've set up before */
   Storyblok.get(`cdn/stories/${slug}`, {})
-    .then(response => {
+    .then((response) => {
       const {
         data: {
-          story: { content }
-        }
+          story: { content },
+        },
       } = response; /* Same as: const content = data.story.content */
       console.log(content);
       const data = { content };
@@ -46,7 +46,7 @@ export default async (req, res) => {
       res.statusCode = 200;
       res.end(JSON.stringify(data));
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
       res.setHeader("Content-Type", "application/json");
       res.statusCode = 500;

@@ -1,16 +1,24 @@
 .root {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
+  height: 100%;
 
-  a {
-    padding: 15px 20px;
-    display: inline-block;
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    text-align: center;
-    border-radius: 10px;
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+
+    #myWorkLink,
+    #contactLink {
+      padding: 15px 20px;
+      display: inline-block;
+      text-decoration: none;
+      background-color: white;
+      color: black;
+      text-align: center;
+      border-radius: 10px;
+    }
   }
+
   h1,
   h2 {
     margin-left: auto;
@@ -28,43 +36,81 @@
 
   h2 {
     font-size: 36px;
-    color: #eda086;
+    color: #c6819d;
     padding-right: 3.3vw;
+  }
+
+  .pageWrapper {
+    display: grid;
+    grid-template: 100% / auto auto;
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #e9e6dd;
+  }
+
+  .contentWrapper #contactLink,
+  .contentWrapper #myWorkLink {
+    margin: 6vh 0;
+    font-size: 24px;
+  }
+
+  .contentWrapper #contactLink:hover,
+  .contentWrapper #myWorkLink:hover {
+    background-color: #3976a2;
+  }
+
+  .headlineWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #3976a2;
+  }
+
+  #myWorkLink {
+    min-width: 173px;
   }
 }
 
-.pageWrapper {
-  display: grid;
-  grid-template: 100% / 50% 50%;
-}
+@media only screen and (max-width: 992px) {
+  .root {
+    .pageWrapper {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
 
-.contentWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #eda086;
-}
+      .headlineWrapper {
+        width: 100%;
+        height: 50vh;
 
-.contentWrapper a {
-  margin: 6vh 0;
-  font-size: 24px;
-}
+        h1 {
+          font-size: 12vw;
+        }
 
-.contentWrapper a:hover {
-  background-color: #3a5065;
-}
+        h2 {
+          font-size: 6.5vw;
+        }
+      }
 
-.headlineWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #3a5065;
-}
+      .contentWrapper {
+        width: 100%;
+        height: 100%;
+        min-height: 50vh;
 
-#myWorkLink {
-  min-width: 173px;
+        #myWorkLink,
+        #contactLink {
+          padding: 2vh 2vw;
+        }
+      }
+    }
+  }
 }

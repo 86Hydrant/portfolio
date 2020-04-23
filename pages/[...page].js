@@ -13,10 +13,11 @@ import HeadlineModule from "../components/modules/HeadlineModule";
 import ParagraphModule from "../components/modules/ParagraphModule";
 import MyWork from "../components/modules/myWorkModule/MyWork";
 import ImageModule from "../components/modules/ImageModule";
+import Project from "../components/modules/Project/Project";
 
 /* Helper function to fetch data - do we need this as an extra function? Debatable. 😊 */
 function fetchUrl(url) {
-  return fetch(url).then(r => r.json());
+  return fetch(url).then((r) => r.json());
 }
 
 /* This route gets hit when our user appends a slug to
@@ -30,34 +31,43 @@ const SlugPage = ({ data }) => {
   /* Data for all components on slug pages */
 
   const headlineModuleData = content.body.find(
-    item => item.component === "headline module"
+    (item) => item.component === "headline module"
   );
 
   const paragraphModuleData = content.body.find(
-    item => item.component === "paragraph"
+    (item) => item.component === "paragraph"
   );
 
   const imageModuledata = content.body.find(
-    item => item.component === "image module"
+    (item) => item.component === "image module"
   );
 
   /* selecting all ProjectContainers with filter so they can be mapped */
-  const projectData = content.body.filter(item =>
+  const projectData = content.body.filter((item) =>
     item.component.includes("ProjectContainer")
   );
+  const projectInfoArray = projectData.map((obj) => {
+    const arr = [];
+    arr.push(obj);
+    return arr;
+  });
+  console.log(projectInfoArray);
+  const projectCodeString = JSON.stringify();
+
+  /*projectData[0].info.content*/
 
   /* function to map components */
-  const modulePrinter = moduleData => {
+  const modulePrinter = (moduleData) => {
     return moduleData.map((module, index) => {
-      return (
-        <MyWork title={module.title} image={module.image} info={module.info} />
-      );
+      const { title, image, info } = module;
+      return <MyWork title={title} image={image} info={info} />;
     });
   };
 
   /* For easier styling I made layout components for both pages */
   return (
     <DefaultLayout>
+      {/* <p> {codeString}</p>*/}
       <MyWorkLayout>{modulePrinter(projectData)}</MyWorkLayout>
 
       <AboutLayout>
