@@ -1,0 +1,62 @@
+{
+  "_uid": "771e3f26-d1c0-4660-aac7-78aa9c76851e",
+  "body": [
+    {
+      "_uid": "ecfe15b1-dd9b-4f98-92a1-b43ec8c76d1c",
+      "info": "The first full Javascript project I made",
+      "link": {
+        "id": "",
+        "url": "https://drinkinggameshi.netlify.app/beersweeper/gamepage",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://drinkinggameshi.netlify.app/beersweeper/gamepage"
+      },
+      "image": "//img2.storyblok.com/350x350/f/79994/904x940/63370b0521/beersweeper.png",
+      "title": "Beersweeper",
+      "component": "ProjectContainer"
+    },
+    {
+      "_uid": "5bacda63-d2ee-417c-ba31-05436f8ae059",
+      "info": "A personal project I've continuously been working on",
+      "link": {
+        "id": "",
+        "url": "https://mostlyvegan.netlify.app/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://mostlyvegan.netlify.app/"
+      },
+      "image": "//img2.storyblok.com/350x350/f/79994/705x621/03cc544cdd/landing.png",
+      "title": "Mostly Vegan Recipes",
+      "component": "ProjectContainer"
+    },
+    {
+      "_uid": "c9e8c984-3ca0-4c66-9aa6-ba4e71c799a4",
+      "info": "The first React app made in as a group project at Hyper Island Stockholm",
+      "link": {
+        "id": "",
+        "url": "https://trainrelief.netlify.app/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://trainrelief.netlify.app/"
+      },
+      "image": "//img2.storyblok.com/350x350/f/79994/375x812/3fefd0933e/trainbrain.png",
+      "title": "TrainRelief",
+      "component": "ProjectContainer"
+    },
+    {
+      "_uid": "4565ef4f-15cf-4a60-900f-7dd564b5dac3",
+      "info": "A remake of a popular gym app in Stockholm, made with React with emphasis on web accessibility",
+      "link": {
+        "id": "",
+        "url": "https://gymappremake.netlify.app/",
+        "linktype": "url",
+        "fieldtype": "multilink",
+        "cached_url": "https://gymappremake.netlify.app/"
+      },
+      "image": "//img2.storyblok.com/350x350/f/79994/947x946/1071568a47/gymapp.png",
+      "title": "Gym App Remake",
+      "component": "ProjectContainer"
+    }
+  ],
+  "component": "page"
+}

@@ -51,7 +51,7 @@ const SlugPage = ({ data }) => {
     arr.push(obj);
     return arr;
   });
-  console.log(projectInfoArray);
+  //  console.log(projectInfoArray);
   const projectCodeString = JSON.stringify();
 
   /*projectData[0].info.content*/
@@ -59,8 +59,10 @@ const SlugPage = ({ data }) => {
   /* function to map components */
   const modulePrinter = (moduleData) => {
     return moduleData.map((module, index) => {
-      const { title, image, info } = module;
-      return <MyWork title={title} image={image} info={info} />;
+      const { title, image, info, link } = module;
+      console.log(link.url);
+      console.log(title);
+      return <MyWork title={title} image={image} info={info} link={link.url} />;
     });
   };
 

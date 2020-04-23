@@ -12,13 +12,12 @@ const DefaultLayout = (props) => {
       <div className={style.pageWrapper}>
         <Head title={title} description={description} />
         <div className={style.headlineWrapper}>
-          <h1>
-            H. Eva
-            <br /> Thorisdottir
-          </h1>
-          <h2>Frontend developer</h2>
-          <a href="/" className={style.homeLink}>
-            Home
+          <a href="/">
+            <h1>
+              H. Eva
+              <br /> Thorisdottir
+            </h1>
+            <h2>Frontend developer</h2>
           </a>
         </div>
         <div className={style.contentWrapper}>{props.children}</div>

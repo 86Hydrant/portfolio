@@ -1,12 +1,9 @@
 import style from "./index.scss";
-import { useRouter } from "next/router";
 
 const MyWork = ({ title, image, info, link }) => {
-  const router = useRouter();
-  const { ptitle } = router.query;
   return (
     <div className={style.projectContainers}>
-      <a href="/{ptitle}">
+      <a href={link}>
         <div className={style.hoverEffectContainer}>
           <img src={image} alt="Screenshot of Project" />
           <div className={style.infoContainer}>
