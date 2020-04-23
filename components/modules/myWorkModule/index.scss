@@ -4,7 +4,8 @@
   overflow: hidden;
 
   a {
-    margin: 1vw 2vw;
+    margin: 0 0.5vw;
+    margin-bottom: 5vh;
     position: relative;
     display: inline-block;
 
@@ -14,15 +15,9 @@
       align-items: center;
       justify-content: center;
 
-      img {
-        min-width: 350px;
-        min-height: 350px;
-      }
-
       .infoContainer {
         padding: 2vh 2vw;
-        width: 100%;
-        height: 100%;
+
         background: rgba(250, 250, 250, 0.3);
         font-size: 20px;
         transition: 0.5s ease;
@@ -60,5 +55,12 @@
     .hoverEffectContainer:hover .infoContainer {
       opacity: 1;
     }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  img {
+    width: 70vw;
+    margin: 5vh 0;
   }
 }

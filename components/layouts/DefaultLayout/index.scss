@@ -1,7 +1,6 @@
 .root {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  height: 100%;
 
   .buttonContainer {
     display: flex;
@@ -51,7 +50,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    height: 100%;
     background-color: #e9e6dd;
   }
 
@@ -67,12 +65,24 @@
   }
 
   .headlineWrapper {
+    padding-top: 35vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     background-color: #3976a2;
+
+    .homeLink {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      background-color: white;
+      margin-left: auto;
+      margin-right: 3.3vw;
+      margin-top: 3vh;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
   }
 
   #myWorkLink {
@@ -89,8 +99,10 @@
       flex-direction: column;
 
       .headlineWrapper {
+        padding-top: 0;
         width: 100%;
         height: 50vh;
+        justify-content: center;
 
         h1 {
           font-size: 12vw;
@@ -98,6 +110,10 @@
 
         h2 {
           font-size: 6.5vw;
+        }
+
+        .homeLink {
+          display: none;
         }
       }
 

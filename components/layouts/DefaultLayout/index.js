@@ -3,7 +3,7 @@ import resets from "./styleReset.scss";
 
 import Head from "../../common/Head";
 
-const DefaultLayout = props => {
+const DefaultLayout = (props) => {
   const title = "Eva Thorisdottir";
   const description = "Portfolio page";
 
@@ -17,6 +17,9 @@ const DefaultLayout = props => {
             <br /> Thorisdottir
           </h1>
           <h2>Frontend developer</h2>
+          <a href="/" className={style.homeLink}>
+            Home
+          </a>
         </div>
         <div className={style.contentWrapper}>{props.children}</div>
       </div>
