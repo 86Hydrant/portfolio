@@ -59,17 +59,25 @@ const SlugPage = ({ data }) => {
   /* function to map components */
   const modulePrinter = (moduleData) => {
     return moduleData.map((module, index) => {
-      const { title, image, info, link } = module;
+      const { title, image, info, link, github_link } = module;
       console.log(link.url);
       console.log(title);
-      return <MyWork title={title} image={image} info={info} link={link.url} />;
+      return (
+        <MyWork
+          title={title}
+          image={image}
+          info={info}
+          link={link.url}
+          githubLink={github_link.url}
+        />
+      );
     });
   };
 
   /* For easier styling I made layout components for both pages */
   return (
     <DefaultLayout>
-      {/* <p> {codeString}</p>*/}
+      {/*  <p> {codeString}</p>*/}
       <MyWorkLayout>{modulePrinter(projectData)}</MyWorkLayout>
 
       <AboutLayout>

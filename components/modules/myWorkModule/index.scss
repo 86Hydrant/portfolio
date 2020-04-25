@@ -1,64 +1,37 @@
 .projectContainers {
-  padding: 0;
   display: block;
   overflow: hidden;
+  max-width: 350px;
+  margin-bottom: 2vh;
 
-  a {
-    margin: 0 0.5vw;
-    margin-bottom: 5vh;
-    position: relative;
-    display: inline-block;
+  .infoContainer {
+    flex-direction: column;
+    font-size: 20px;
 
-    .hoverEffectContainer {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .infoContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-        background: rgba(250, 250, 250, 0.3);
-        font-size: 20px;
-        transition: 0.5s ease;
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        text-align: center;
-
-        h3 {
-          font-size: 30px;
-          padding-bottom: 2vh;
-        }
-
-        h3,
-        p {
-          padding: 1vh 3vw;
-          text-shadow: 1px 1px white;
-          line-height: 1.2;
-          letter-spacing: 0.05em;
-          text-align: left;
-          color: black;
-          display: block;
-        }
-        p {
-          font-weight: 400;
-        }
-      }
-    }
-    .hoverEffectContainer:hover img {
-      opacity: 0.2;
+    h3 {
+      margin-top: 1.5vh;
+      font-size: 30px;
+      padding-bottom: 2vh;
     }
 
-    .hoverEffectContainer:hover .infoContainer {
-      opacity: 1;
+    h3,
+    p {
+      text-shadow: 1px 1px white;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+      text-align: left;
+      color: black;
+      display: block;
+    }
+    p {
+      font-weight: 400;
+      margin-bottom: 2vh;
+    }
+
+    a {
+      color: #3976a2;
+      text-decoration: none;
+      font-size: 0.75em;
     }
   }
 }
